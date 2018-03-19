@@ -5,7 +5,10 @@ class UserProfile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(80))
     last_name = db.Column(db.String(80))
-    username = db.Column(db.String(80), unique=True)
+    gender = db.Column(db.String(20))
+    email = db.Column(db.String(255))
+    location = db.Column(db.String(255))
+    biography = db.Column(db.String(255))
 
     def is_authenticated(self):
         return True
