@@ -9,6 +9,7 @@ class UserProfile(db.Model):
     email = db.Column(db.String(255))
     location = db.Column(db.String(255))
     biography = db.Column(db.String(255))
+    pic = db.Column(db.String(255))
 
     def is_authenticated(self):
         return True
