@@ -1,7 +1,40 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1 class="page-header">Lab 5 Starter Code</h1>
-<p class="lead">Use this starter template for Lab 5<br/>
-All you get are these files and mostly barebones HTML/CSS files.</p>
+<div class="login-form center-block">
+    <h2>Create your Profile</h2>
+    {% include 'flash_messages.html' %}
+    <form action="{{ url_for('home') }}" method="post" enctype="multipart/form-data">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.firstname.label }}
+        {{ form.firstname(class='form-control') }}
+      </div>
+      <div class="form-group">
+        {{ form.lastname.label }}
+        {{ form.lastname(class='form-control') }}
+      </div>
+      <div class="form-group">
+        {{ form.gender.label }}
+        {{ form.gender(class='form-control') }}
+      </div>
+      <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class='form-control') }}
+      </div>
+      <div class="form-group">
+        {{ form.location.label }}
+        {{ form.location(class='form-control') }}
+      </div>
+      <div class="form-group">
+        {{ form.biography.label }}
+        {{ form.biography(class='form-control') }}
+      </div>
+      <div class="form-group">
+        {{ form.photo.label }}
+        {{ form.photo(class='form-control') }}
+      </div>
+      <button type="submit" name="submit" class="btn btn-primary btn-block">Create Profile</button>
+    </form>
+  </div>
 {% endblock %}
