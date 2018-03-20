@@ -38,13 +38,17 @@ def home():
             app.config['UPLOAD_FOLDER'], filename
         ))
         
+        photoUrl = url_for('static', filename="uploads/" + filename)
+        
         user = UserProfile(
             first_name=firstname,
             last_name=lastname, 
             gender=gender,
             email=email,
             location = location,
-            biography=biography)
+            biography=biography,
+            pic = photoUrl
+            )
             
         db.session.add(user)
         db.session.commit()
@@ -65,6 +69,31 @@ def profiles():
     Users = UserProfile.query.all()
     return render_template("profiles.html", users=Users)
 
+@app.route('/profile/<userid>')
+def profile(userid):
+    
+    user = UserProfile.query.filter_by(id=userid).first()
+    
+    firstname = user.first_name
+    lastname = user.last_name
+    gender = user.gender
+    email = user.email
+    location = user.location
+    biography = user.biography
+    pic = user.pic
+    
+    
+    
+    
+    return render_template("profile.html", 
+    firstname = firstname,
+    lastname = lastname,
+    gender = gender,
+    email = email,
+    location = location,
+    biography = biography,
+    pic = pic
+    )
 
 # @app.route("/login", methods=["GET", "POST"])
 # def login():
