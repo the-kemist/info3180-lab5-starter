@@ -4,7 +4,7 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms.validators import InputRequired
 
 
-class LoginForm(FlaskForm):
+class CreateForm(FlaskForm):
     firstname = StringField('Firstname', validators=[InputRequired()])
     lastname = StringField('Lastname', validators=[InputRequired()])
     gender = SelectField('gender', choices=[("m","male"),("f","female")] ,validators=[InputRequired()])
