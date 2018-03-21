@@ -3,6 +3,11 @@
 {% block main %}
 <h1>Welcome</h1>
 <div class=" center-block">
-    <h3>Navigate to the Profile to create a profile or Profiles to view all profiles</h3>
+    <h3>Options:</h3>
+    <ul>
+        <li>Go to the <a href="{{url_for('profile')}}">profile</a> tab to create a profile</li>
+        <li>Go to the <a href="{{url_for('profiles')}}">profiles</a> tab to view all profiles</li>
+        
+    </ul>
   </div>
 {% endblock %}
